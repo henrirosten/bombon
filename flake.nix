@@ -80,6 +80,8 @@
             inherit transformer;
             default = transformer;
             sbom = buildBom transformer { };
+            sbom-git = buildBom pkgs.git { };
+            sbom-mailcap = buildBom pkgs.mailcap { };
           };
 
           checks = transformer.tests // import ./nix/tests { inherit pkgs buildBom passthruVendoredSbom; };
